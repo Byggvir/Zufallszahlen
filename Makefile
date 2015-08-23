@@ -25,4 +25,4 @@ $(OBJS) : $(PGM).c++
 clean :
 	rm *.o
 install :
-	cp wahlen /home/thomas/bin/risk
+	cp risk /usr/local/bin/
