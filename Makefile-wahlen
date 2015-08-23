@@ -1,0 +1,28 @@
+
+# Thomas erstes eigenes "Makefile"
+# ---------------------------------
+#
+# $Id$
+# $Log$
+#----------------------------------
+
+CC = g++
+OPT=-march=x86-64
+
+#
+# Erstes Programm
+#
+
+PGM = wahlen
+OBJS = wahlen.o
+$(PGM) : $(OBJS)
+	$(CC) -o $(PGM) $(OBJS) -I/usr/lib -I/home/thomas/bin/cc/Zufallszahlen -L/usr/include/g++ $(OPT)
+$(OBJS) : $(PGM).c++
+	$(CC) -c $(PGM).c++ $(OPT) -I/home/thomas/bin/cc/Zufallszahl
+
+.PHONY : clean
+.PHONY : install
+clean :
+	rm *.o
+install :
+	cp wahlen /home/thomas/bin/wahlen
